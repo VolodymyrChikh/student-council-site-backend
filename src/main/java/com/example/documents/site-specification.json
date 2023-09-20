@@ -1,0 +1,713 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Student Council Site OpenAPI Specification",
+    "description": "Student Council Site OpenAPI Specification for short information about its functionality",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Student Council Site",
+      "url": "www.ami-student-council.com",
+      "email": "ami.studentcouncli@gmail.com"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://student-council-site.herokuapp.com"
+    }
+  ],
+  "paths": {
+    "/portal.azure.com/student-council-site-storage": {
+      "get" : {
+        "summary": "Get all files",
+        "description": "Get all files",
+        "operationId": "getAllFiles",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/getFiles"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Files Not Found"
+          }
+        }
+      }
+    },
+    "/forms": {
+      "get": {
+        "summary": "Get all forms",
+        "description": "Get all forms",
+        "operationId": "getAllForms",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/getForm"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Forms Not Found"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create new form",
+        "description": "Create new form",
+        "operationId": "createNewForm",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/postForm"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/postForm"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/form{id}": {
+      "get": {
+        "summary": "Get form by id",
+        "description": "Get form by id",
+        "operationId": "getFormById",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/getForm"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Form Not Found"
+          }
+        }
+      },
+      "put": {
+        "summary": "Update form by id",
+        "description": "Update form by id",
+        "operationId": "updateFormById",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/putForm"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/postForm"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Form Not Found"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete form by id",
+        "description": "Delete form by id",
+        "operationId": "deleteFormById",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/deleteForm"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Form Not Found"
+          }
+        }
+      }
+    },
+    "/departments": {
+      "get": {
+        "summary": "Get all department",
+        "description": "Get all department",
+        "operationId": "getDepartments",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/getDepartment"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Forms Not Found"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create new department",
+        "description": "Create new department",
+        "operationId": "createNewDepartment",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/postDepartment"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/postDepartment"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/departments{id}": {
+      "get": {
+        "summary": "Get department by id",
+        "description": "Get department by id",
+        "operationId": "getDepartmentById",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/getDepartment"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Department Not Found"
+          }
+        }
+      },
+      "put": {
+        "summary": "Update department by id",
+        "description": "Update department by id",
+        "operationId": "updateDepartmentById",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/postDepartment"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/postDepartment"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Department Not Found"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete department by id",
+        "description": "Delete department by id",
+        "operationId": "deleteDepartmentById",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/deleteDepartment"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Department Not Found"
+          }
+        }
+      }
+    },
+    "/departments/department-members": {
+      "get": {
+        "summary": "Get all department members",
+        "description": "Get all department members",
+        "operationId": "getDepartmentMembers",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/getDepartmentMember"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Department Members Not Found"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create new department member",
+        "description": "Create new department member",
+        "operationId": "createNewDepartmentMember",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/postDepartmentMember"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/postDepartmentMember"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/departments/department-members{id}": {
+      "get": {
+        "summary": "Get department member by id",
+        "description": "Get department member by id",
+        "operationId": "getDepartmentMemberById",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/getDepartmentMember"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Department Member Not Found"
+          }
+        }
+      },
+      "put": {
+        "summary": "Update department member by id",
+        "description": "Update department member by id",
+        "operationId": "updateDepartmentMemberById",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/postDepartmentMember"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/postDepartmentMember"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Department Member Not Found"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete department member by id",
+        "description": "Delete department member by id",
+        "operationId": "deleteDepartmentMemberById",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/deleteDepartmentMember"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Department Member Not Found"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "getForm": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "textBody": {
+            "type": "string"
+          },
+          "formType": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "fullName": {
+            "type": "string"
+          },
+          "speciality": {
+            "type": "string"
+          },
+          "groupName": {
+            "type": "string"
+          }
+        }
+      },
+      "postForm": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "example": "1"
+          },
+          "textBody": {
+            "type": "string",
+            "example": "This is a text body example"
+          },
+          "formType": {
+            "type": "string",
+            "example": "feedback form"
+          },
+          "created-at": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2021-05-05T12:00:00Z"
+          },
+          "fullName": {
+            "type": "string",
+            "example": "John Doe"
+          },
+          "speciality": {
+            "type": "string",
+            "example": "Computer Science"
+          },
+          "groupName": {
+            "type": "string",
+            "example": "CS-11"
+          }
+        }
+      },
+      "putForm": {
+        "type": "object",
+        "properties": {
+          "textBody": {
+            "type": "string",
+            "example": "This is a text body example"
+          },
+          "formType": {
+            "type": "string",
+            "example": "feedback form"
+          },
+          "created-at": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2021-05-05T12:00:00Z"
+          },
+          "fullName": {
+            "type": "string",
+            "example": "John Doe"
+          },
+          "speciality": {
+            "type": "string",
+            "example": "Computer Science"
+          },
+          "groupName": {
+            "type": "string",
+            "example": "CS-11"
+          }
+        }
+      },
+      "deleteForm": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "textBody": {
+            "type": "string"
+          },
+          "formType": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "fullName": {
+            "type": "string"
+          },
+          "speciality": {
+            "type": "string"
+          },
+          "groupName": {
+            "type": "string"
+          }
+        }
+      },
+      "getDepartment": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          }
+        }
+      },
+      "postDepartment": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "example": "1"
+          },
+          "name": {
+            "type": "string",
+            "example": "Computer Science"
+          }
+        }
+      },
+      "putDepartment": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Computer Science"
+          }
+        }
+      },
+      "deleteDepartment": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          }
+        }
+      },
+      "getDepartmentMember": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "departmentId": {
+            "type": "integer"
+          },
+          "fullName": {
+            "type": "string"
+          },
+          "instagramLink": {
+            "type": "string"
+          },
+          "telegramLink": {
+            "type": "string"
+          },
+          "position": {
+            "type": "string"
+          },
+          "imageLink": {
+            "type": "string"
+          }
+        }
+      },
+      "postDepartmentMember": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "example": "1"
+          },
+          "departmentId": {
+            "type": "integer",
+            "example": "1"
+          },
+          "fullName": {
+            "type": "string",
+            "example": "John Doe"
+          },
+          "instagramLink": {
+            "type": "string",
+            "example": "https://www.instagram.com/johndoe/"
+          },
+          "telegramLink": {
+            "type": "string",
+            "example": "https://t.me/johndoe/"
+          },
+          "position": {
+            "type": "string",
+            "example": "Head of Department"
+          },
+          "imageLink": {
+            "type": "string",
+            "example": "https://www.example.com/image.jpg"
+          }
+        }
+      },
+      "putDepartmentMember": {
+        "type": "object",
+        "properties": {
+          "departmentId": {
+            "type": "integer",
+            "example": "1"
+          },
+          "fullName": {
+            "type": "string",
+            "example": "John Doe"
+          },
+          "instagramLink": {
+            "type": "string",
+            "example": "https://www.instagram.com/johndoe/"
+          },
+          "telegramLink": {
+            "type": "string",
+            "example": "https://t.me/johndoe/"
+          },
+          "position": {
+            "type": "string",
+            "example": "Head of Department"
+          },
+          "imageLink": {
+            "type": "string",
+            "example": "https://www.example.com/image.jpg"
+          }
+        }
+      },
+      "deleteDepartmentMember": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "departmentId": {
+            "type": "integer"
+          },
+          "fullName": {
+            "type": "string"
+          },
+          "instagramLink": {
+            "type": "string"
+          },
+          "telegramLink": {
+            "type": "string"
+          },
+          "position": {
+            "type": "string"
+          },
+          "imageLink": {
+            "type": "string"
+          }
+        }
+      },
+      "getFiles" : {
+        "type": "object",
+        "properties": {
+          "link" : {
+            "type": "string"
+          },
+          "createdAt" : {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt" : {
+            "type": "string",
+            "format": "date-time"
+          },
+          "size" : {
+            "type": "integer"
+          }
+        }
+      }
+    }
+  }
+}
